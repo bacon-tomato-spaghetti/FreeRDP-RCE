@@ -311,8 +311,7 @@ static UINT irp_complete(IRP* irp)
 
 다음 취약점을 이용해 원하는 크기의 chunk를 할당 받아 원하는 길이만큼 overwrite 할 수 있다
 
-[[cve 제보 보고서 완료\] [보고서 작성 완료] FreeRDP Heap-Buffer-Overflow (TSMF)](https://www.notion.so/cve-FreeRDP-Heap-Buffer-Overflow-TSMF-4d8a1a0757594b049c205e638d834cd7)
-
+FreeRDP Heap-Buffer-Overflow (TSMF)
 heap overflow로 실행 흐름을 바꾸기 위해서 vtable을 overwrite하는 방법을 생각할 수 있다. 이때 exploit의 확률을 높이기 위해 Heap Spray를 사용하였다.
 
 Spray한 vtable은 Echo Channel의 vtable을 사용했다.
@@ -593,7 +592,6 @@ static UINT dvcman_write_channel(IWTSVirtualChannel* pChannel,
 
 Step 1. 에서 library address를 leak 했기 때문에 이런 gadget은 얼마든지 찾아낼 수 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cec1ad54-477e-4bd4-8219-6ff28cf0771f/Untitled.png)
 
 이때 rdx가 0x10으로 나누어 떨어지지 않아 stack align이 요구되는 `system` 함수 등을 사용하기는 어렵지만, ROP를 수행할 버퍼의 크기가 굉장히 커서 mmap을 이용해 rwx 메모리를 할당하고 shellcode를 쓴 뒤, shellcode로 return하여 RCE를 달성할 수 있었다.
 
@@ -612,9 +610,6 @@ $ md5sum /lib/x86_64-linux-gnu/libc.so.6
 3d7240354d70ebbd11911187f1acd6e8  /lib/x86_64-linux-gnu/libc.so.6
 ```
 
-### Server
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2b869786-5f90-4ded-abb3-84988a7f4951/Untitled.png)
 
 ## 빌드 방법
 
