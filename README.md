@@ -4,7 +4,7 @@ FreeRDP의 rdpdr channel에서 발생하는 read of uninitialized memory 취약�
 
 # What is FreeRDP?
 
-[FreeRDP](https://github.com/FreeRDP/FreeRDP)는 오픈소스로 관리되는 RDP 구현체로
+[FreeRDP](https://github.com/FreeRDP/FreeRDP)는 오픈소스로 관리되는 RDP 구현체이다.
 
 # The Bugs
 
